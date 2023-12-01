@@ -1,11 +1,12 @@
 import express from "express";
+import bodyParser from "body-parser";
 import { db } from "./db/connect.js";
 import dotenv from "dotenv";
 import userRouter from "./routes/userRoutes.js";
 
 dotenv.config();
 const app = express();
-
+app.use(bodyParser.json());
 app.use("/api", userRouter);
 
 const port = 3001;
